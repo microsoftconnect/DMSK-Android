@@ -1,0 +1,1 @@
+define({r:0.5,st:'Stem',n:1,t:[0],m:[],u:['../Content/AndroidIntroduction/DANUBE_ACKNOWLEDGEMENTS_ANDROID.htm'],s:['$','even','otherwis','upravljanj'],p:[['$',11],['add',16],['audited',48],['command',25],['display',11],['files',50],['ilrepack',32],['l',38],['naslednje',63],['other',0],['recognition',50],['set',18],['szó',36],['to',0],['vstavi',63]]});

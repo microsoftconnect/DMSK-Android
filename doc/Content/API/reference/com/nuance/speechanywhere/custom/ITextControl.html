@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Javadoc API documentation." />
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico" />
+<title>
+
+  ITextControl
+
+
+</title>
+<link href="../../../../../assets/doclava-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<script src="../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../assets/doclava-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../", "../../../../../assets/");
+</script>
+<script src="../../../../../assets/doclava-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../../assets/navtree_data.js" type="text/javascript"></script>
+<script src="../../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+</head>
+
+<body class="">
+
+<div id="header">
+    <div id="headerLeft">
+    
+    </div>
+    <div id="headerRight">
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links"><nobr>
+                <a href="../../../../packages.html"  >Package Index</a> | 
+                <a href="../../../../classes.html" >Class Index</a></nobr>
+              </div>
+              <ul>
+                
+    <li class="api apilevel-">
+  <a href="../../../../com/nuance/speechanywhere/package-summary.html">com.nuance.speechanywhere</a></li>
+    <li class="selected api apilevel-">
+  <a href="../../../../com/nuance/speechanywhere/custom/package-summary.html">com.nuance.speechanywhere.custom</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="selected api apilevel-"><a href="../../../../com/nuance/speechanywhere/custom/ITextControl.html">ITextControl</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../com/nuance/speechanywhere/custom/ITextControl.Selection.html">ITextControl.Selection</a></li>
+          <li class="api apilevel-"><a href="../../../../com/nuance/speechanywhere/custom/VuiController.html">VuiController</a></li>
+      </ul>
+    </li>
+              
+              
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links"><nobr>
+            <a href="../../../../packages.html"  >Package Index</a> | 
+            <a href="../../../../classes.html" >Class Index</a></nobr>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+
+<div class="sum-details-links">
+
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+     
+    
+    interface
+<h1>ITextControl</h1>
+
+
+
+  
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">com.nuance.speechanywhere.custom.ITextControl</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<table id="nestedclasses" class="jd-sumtable"><tr><th colspan="12">Nested Classes</th></tr>
+
+
+  
+    <tr class="alt-color api apilevel-" >
+      <td class="jd-typecol"><nobr>
+        
+         
+         
+        
+        class</nobr></td>
+      <td class="jd-linkcol"><a href="../../../../com/nuance/speechanywhere/custom/ITextControl.Selection.html">ITextControl.Selection</a></td>
+      <td class="jd-descrcol" width="100%">Represents the selection in a control.&nbsp;</td>
+    </tr>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/nuance/speechanywhere/custom/ITextControl.html#getId()">getId</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns a unique identifier for the user-visible UI element this custom control instance is associated with.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/nuance/speechanywhere/custom/ITextControl.html#getNewlineFormatString()">getNewlineFormatString</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the string that is interpreted by this control as a newline character sequence.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/nuance/speechanywhere/custom/ITextControl.html#getParagraphFormatString()">getParagraphFormatString</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the string that is interpreted by this control as a new paragraph character sequence.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../com/nuance/speechanywhere/custom/ITextControl.Selection.html">ITextControl.Selection</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/nuance/speechanywhere/custom/ITextControl.html#getSelection()">getSelection</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the selection in this control.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/nuance/speechanywhere/custom/ITextControl.html#getText(int, int)">getText</a></span>(int start, int length)</nobr>
+        
+        <div class="jd-descrdiv">Returns a portion of the text in this control.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/nuance/speechanywhere/custom/ITextControl.html#getTextLength()">getTextLength</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Gets the total length of the text contained in the control.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/nuance/speechanywhere/custom/ITextControl.html#isFocused()">isFocused</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns whether this control has the focus or not.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/nuance/speechanywhere/custom/ITextControl.html#replaceText(int, int, java.lang.String)">replaceText</a></span>(int start, int length, String newText)</nobr>
+        
+        <div class="jd-descrdiv">Replaces a portion of the text in this control with a new string.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/nuance/speechanywhere/custom/ITextControl.html#setFocused()">setFocused</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Sets this control to be focused.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../com/nuance/speechanywhere/custom/ITextControl.html#setSelection(com.nuance.speechanywhere.custom.ITextControl.Selection)">setSelection</a></span>(<a href="../../../../com/nuance/speechanywhere/custom/ITextControl.Selection.html">ITextControl.Selection</a> selection)</nobr>
+        
+        <div class="jd-descrdiv">Sets the selection in this control.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- Fields -->
+
+
+<!-- Public ctors -->
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="getId()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        String
+      </span>
+      <span class="sympad">getId</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns a unique identifier for the user-visible UI element this custom control instance is associated with.
+ <p>
+ <p>If your ITextControl implementation is destroyed and recreated across the configuration changes of your Activity (like the Views are),
+ Dragon Medical SpeechKit will automatically match the new ITextControl instances to the old ones so that speech recognition can operate uninterrupted.
+ However, this identifier has to be persistent and unique across all custom controls in your application. A sensible value which could be used here is the
+ Android ID of the View this custom control is associated with.</p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The unique ID.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getNewlineFormatString()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        String
+      </span>
+      <span class="sympad">getNewlineFormatString</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the string that is interpreted by this control as a newline character sequence.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The newline character sequence. If empty or null, the default value of \\n will be used.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getParagraphFormatString()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        String
+      </span>
+      <span class="sympad">getParagraphFormatString</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the string that is interpreted by this control as a new paragraph character sequence.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The new paragraph character sequence. If empty or null, the default value of \\n\\n will be used.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getSelection()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../com/nuance/speechanywhere/custom/ITextControl.Selection.html">ITextControl.Selection</a>
+      </span>
+      <span class="sympad">getSelection</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the selection in this control.
+ <p>
+ <p>If no text is selected, start contains the cursor position and length equals zero.</p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>A <code><a href="../../../../com/nuance/speechanywhere/custom/ITextControl.Selection.html">ITextControl.Selection</a></code> object containing the zero-based index of the first character selected (start),
+ and the number of selected characters (length).
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getText(int, int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        String
+      </span>
+      <span class="sympad">getText</span>
+      <span class="normal">(int start, int length)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns a portion of the text in this control.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>start</td>
+          <td>Zero-based index of the first character to be queried.</td>
+        </tr>
+        <tr>
+          <th>length</td>
+          <td>Length of text to be queried. If set to -1, all text up to the end of the contents of the control is returned.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The text contents queried.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getTextLength()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        int
+      </span>
+      <span class="sympad">getTextLength</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the total length of the text contained in the control.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The total length of the text contained in the control.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="isFocused()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        boolean
+      </span>
+      <span class="sympad">isFocused</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns whether this control has the focus or not.
+ <p>
+ <p>The "focus" concept implemented may differ from the Android GUI focus concept. In particular, it is recommended to keep track
+ of the last focused speech-enabled control to avoid having all controls lose focus when the end user clicks on a control of
+ another kind (for example, the "Start recording" button). Make sure exactly one control returns true at any given time.</p>
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="replaceText(int, int, java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">replaceText</span>
+      <span class="normal">(int start, int length, String newText)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Replaces a portion of the text in this control with a new string.
+ <p>
+ <p>After the call the insertion point must be located at the same position in the text as before the call. This means that if ReplaceText() inserts or removes characters to the left of the current insertion point or selection, the location of the insertion point must be moved accordingly. If ReplaceText() modifies text to the right of the insertion point, the insertion point must not change. If ReplaceText() modifies characters at the insertion point, the insertion point must be set to the end of the modified region.
+ Ideally, if ReplaceText() is called while the user is typing and modifies text to the left or right of the typing location, this will not interfere with the user's keyboard input. This is to ensure that speech recognition results can be inserted in the text asynchronously while the user is, for example, correcting a misrecognition at another location in the text. </p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>start</td>
+          <td>Zero-based index of the first character to be replaced.</td>
+        </tr>
+        <tr>
+          <th>length</td>
+          <td>Length of text to be replaced.</td>
+        </tr>
+        <tr>
+          <th>newText</td>
+          <td>String containing the new text.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setFocused()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setFocused</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets this control to be focused.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="setSelection(com.nuance.speechanywhere.custom.ITextControl.Selection)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setSelection</span>
+      <span class="normal">(<a href="../../../../com/nuance/speechanywhere/custom/ITextControl.Selection.html">ITextControl.Selection</a> selection)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the selection in this control.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>selection</td>
+          <td>A <code><a href="../../../../com/nuance/speechanywhere/custom/ITextControl.Selection.html">ITextControl.Selection</a></code> object containing the zero-based index of the first character to be selected (start),
+                  and the number of characters to be selected (length).
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+Generated by <a href="http://code.google.com/p/doclava/">Doclava</a>.
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize doclava-developer-docs.js */
+</script>
+
+</body>
+</html>

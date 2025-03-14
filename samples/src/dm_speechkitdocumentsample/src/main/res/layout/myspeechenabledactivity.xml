@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+   myspeechenabledactivity.xml
+   DM_SpeechKitDocumentSample
+
+  Copyright 2010-2024 Nuance Communications, Inc. All rights reserved.
+-->
+
+<!-- Layout of the speech-enabled Activity  -->
+
+<!-- VuiController integration: this element is the root of the view hierarchy  -->
+<com.nuance.speechanywhere.VuiController
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:id="@+id/vuicontroller"
+	android:tag="topic:General Medicine">
+
+	<ScrollView
+		android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+
+		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		              android:orientation="vertical"
+		              android:layout_width="fill_parent"
+		              android:layout_height="fill_parent"
+			>
+
+			<!-- Toggle recording button -->
+			<Button
+				android:id="@+id/record"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:padding="10dp"
+				android:text="Record"
+				android:onClick="toggleRecording"
+				/>
+
+			<Button
+				android:id="@+id/toggleBetweenDocs"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:onClick="toggleBetweenDocs"
+				android:text="Toggle between docs"/>
+
+			<TextView
+				android:id="@+id/openDocument"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"/>
+			<!-- First speech-enabled EditText -->
+			<EditText
+				android:id="@+id/oneline"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:singleLine="true"
+				android:imeOptions="flagNoExtractUi"
+				/>
+
+			<!-- Second speech-enabled EditText -->
+			<EditText
+				android:id="@+id/multiline"
+				android:minLines="6"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:gravity="top"
+				android:imeOptions="flagNoExtractUi"
+				/>
+		</LinearLayout>
+	</ScrollView>
+</com.nuance.speechanywhere.VuiController>

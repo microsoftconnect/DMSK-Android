@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Use Cases">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Print.css" rel="stylesheet" type="text/css" data-mc-generated="True" /><title>
+			Setting the language and topic
+		</title>
+        <link href="../Resources/Stylesheets/DocLoc.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <h1><a name="kanchor15"></a>Setting the language and topic</h1>
+        <p>The language and topic properties are optional.</p>
+        <h2><a name="SR_language"></a>Speech recognition language</h2>
+        <p>You can specify the language to be used for speech recognition for each VUI&#160;form. Changing the language property after the VuiController is opened will only have an effect if the <code>synchronize()</code> method is called.</p>
+        <p class="note"><b>Note:</b> By default, VuiControllers are opened automatically upon creation. For exceptions, see: <a href="DANUBE_CUSTOM_CONTROLS_ANDROID.htm">Custom controls</a> and <a href="../AndroidIntroduction/DANUBE_API_ANDROID.htm">API reference</a>.</p>
+        <p>IETF language tags are used. The format is language subtag plus optional region subtag (for example, <i>en-US</i> or <i>en</i> for US English). Other formats aren't supported.</p>
+        <p>If you don't set a language, the language of your Android device is used.</p>
+        <h2>Topic</h2>
+        <p>Based on the medical specialties your users work in, you can specify the topic (medical specialty) for each VUI form. Changing the topic property after the VuiController is opened will only have an effect if the <code>synchronize()</code> method is called. You can supply topic names either as a string value or as a public static string constant defined in the VuiController class. The following topics are supported:</p>
+        <table>
+            <col />
+            <col style="width: 159px;" />
+            <col />
+            <tbody>
+                <tr>
+                    <th>Topic</th>
+                    <th>String value</th>
+                    <th>String constant name</th>
+                </tr>
+                <tr>
+                    <td>General Medicine</td>
+                    <td>"GeneralMedicine"</td>
+                    <td>NUSA_TOPIC_GENERAL_MEDICINE</td>
+                </tr>
+                <tr>
+                    <td>Clinical Administration</td>
+                    <td>"ClinicalAdministration"</td>
+                    <td>NUSA_TOPIC_CLINICAL_ADMINISTRATION</td>
+                </tr>
+                <tr>
+                    <td>Cardiology</td>
+                    <td>"Cardiology"</td>
+                    <td>NUSA_TOPIC_CARDIOLOGY</td>
+                </tr>
+                <tr>
+                    <td>Emergency</td>
+                    <td>"Emergency"</td>
+                    <td>NUSA_TOPIC_EMERGENCY</td>
+                </tr>
+                <tr>
+                    <td>Internal Medicine</td>
+                    <td>"InternalMedicine"</td>
+                    <td>NUSA_TOPIC_INTERNAL_MEDICINE</td>
+                </tr>
+                <tr>
+                    <td>Mental Health</td>
+                    <td>"MentalHealth"</td>
+                    <td>NUSA_TOPIC_MENTAL_HEALTH</td>
+                </tr>
+                <tr>
+                    <td>Neurology</td>
+                    <td>"Neurology"</td>
+                    <td>NUSA_TOPIC_NEUROLOGY</td>
+                </tr>
+                <tr>
+                    <td>Orthopaedics</td>
+                    <td>"Orthopaedics"</td>
+                    <td>NUSA_TOPIC_ORTHOPAEDICS</td>
+                </tr>
+                <tr>
+                    <td>Obstetrics and Gynecology</td>
+                    <td>"ObstetricsAndGynecology"</td>
+                    <td>NUSA_TOPIC_OBSTETRICS_AND_GYNECOLOGY</td>
+                </tr>
+                <tr>
+                    <td>Oncology</td>
+                    <td>"Oncology"</td>
+                    <td>NUSA_TOPIC_ONCOLOGY</td>
+                </tr>
+                <tr>
+                    <td>Pathology</td>
+                    <td>"Pathology"</td>
+                    <td>NUSA_TOPIC_PATHOLOGY</td>
+                </tr>
+                <tr>
+                    <td>Pediatrics</td>
+                    <td>"Pediatrics"</td>
+                    <td>NUSA_TOPIC_PEDIATRICS</td>
+                </tr>
+                <tr>
+                    <td>Surgery</td>
+                    <td>"Surgery"</td>
+                    <td>NUSA_TOPIC_SURGERY</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Remarks</h3>
+        <ul>
+            <li><a href="../Concepts/DANUBE_ADAPTATION.htm">User profile adaptation</a> is done separately for each topic; make sure to specify the correct medical specialty for it to work efficiently.
+</li>
+            <li>Specify the Clinical Administration topic when using general, non-medical language.
+</li>
+            <li>General Medicine&#160;is the default setting; if you don't specify a topic, this topic is used.</li>
+        </ul>
+        <h2>Procedure</h2>
+        <p>To set the language and topic, add this line to your VuiController declaration: <code>android:tag="language:&lt;your language&gt;;topic:&lt;your topic&gt;"</code> </p>
+        <p class="compact">For example:</p>
+        <p class="compact2"><code>&lt;com.nuance.speechanywhere.VuiController</code> </p>
+        <p class="compact3"><code>android:layout_width="match_parent"</code> </p>
+        <p class="compact3"><code>android:layout_height="match_parent"</code> </p>
+        <p class="compact3"><code>android:tag="language:en-US;topic:InternalMedicine"</code> </p>
+        <p class="indent2"><code>android:id="@+id/vuicontroller"&gt;</code>
+        </p>
+        <p class="note"><b>Note:</b> You can't use the public string constants in the XML file, you must supply the corresponding string values.</p>
+        <p>Alternatively, the language and topic can be set programmatically. To set the language and topic, obtain a reference to the VuiController object in your activity and call the <code>setLanguage(String language)</code> and <code>setTopic(String topic</code>) methods on the VuiController object.</p>
+        <p>To set the topic, you can pass the actual topic string values or the corresponding public string constants listed above.</p>
+        <p class="compact">For example:</p>
+        <p class="compact2"><code>theVuiController.setLanguage("en-US");</code> </p>
+        <p class="indent2"><code>theVuiController.setTopic(VuiController.NUSA_TOPIC_GENERAL_MEDICINE);</code> </p>
+        <h2>Remarks</h2>
+        <p>If your topic isn't listed above, set <code>topic:&lt;myTopic&gt;</code>. For more information, please contact Nuance support.</p>
+        <p>The language of the <span class="mc-variable DocLoc.DM_SK variable">Dragon Medical SpeechKit</span> GUI is the speech recognition language of the last speech-enabled form the user has dictated into; for more information, see:&#160;<a href="#SR_language">Speech recognition language</a>.</p>
+        <p>The <code>Session.setLanguage</code> property, previously used to specify a GUI language independent of the speech recognition language (specified via <code>theVuiController.setLanguage()</code>), is deprecated.</p>
+        <p><span class="mc-variable DocLoc.DM_SK variable">Dragon Medical SpeechKit</span> (speech recognition and GUI) is provided in the following languages:</p>
+        <ul>
+            <li>Catalan (ca)</li>
+            <li>Danish (da)</li>
+            <li>Dutch (nl)</li>
+            <li>English (en)</li>
+            <li>Finnish (fi)</li>
+            <li>French (fr)</li>
+            <li>German (de)</li>
+            <li>Hungarian (hu)</li>
+            <li>Italian (it)</li>
+            <li>Norwegian Bokmål (nb)</li>
+            <li>Norwegian Nynorsk (nn)</li>
+            <li>Portuguese (pt)</li>
+            <li>Slovenian (sl)</li>
+            <li>Spanish (es)</li>
+            <li>Swedish (sv)</li>
+        </ul>
+    </body>
+</html>

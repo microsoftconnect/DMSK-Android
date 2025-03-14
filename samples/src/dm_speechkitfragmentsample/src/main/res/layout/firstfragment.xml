@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:id="@+id/firstfragment_root"
+	>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="First fragment"
+		/>
+
+	<!-- Toggle recording button -->
+	<Button
+		android:id="@+id/record"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:padding="10dp"
+		android:text="Record"
+		android:onClick="toggleRecording"
+		/>
+
+	<!-- First speech-enabled EditText -->
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="'apple'"
+		/>
+
+	<EditText
+		android:id="@+id/apple"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:singleLine="true"
+		android:imeOptions="flagNoExtractUi"
+		/>
+
+	<!-- Second speech-enabled EditText -->
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="'pear\'"
+		/>
+
+	<EditText
+		android:id="@+id/pear"
+		android:minLines="6"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="top"
+		android:imeOptions="flagNoExtractUi"
+		/>
+</LinearLayout>

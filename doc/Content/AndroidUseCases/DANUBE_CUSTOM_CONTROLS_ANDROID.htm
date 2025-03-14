@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Use Cases">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Print.css" rel="stylesheet" type="text/css" data-mc-generated="True" /><title>Custom controls</title>
+        <link href="../Resources/Stylesheets/DocLoc.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <h1><a name="kanchor14"></a>Custom controls</h1>
+        <p><span class="mc-variable DocLoc.DM_SK variable">Dragon Medical SpeechKit</span> doesn't support all text control types out-of-the-box. Implementing the custom control interface of <span class="mc-variable DocLoc.DM_SK variable">Dragon Medical SpeechKit</span> enables you to speech-enable unsupported controls. Your custom control implementation is responsible for manipulating the text inside the unsupported control as instructed by <span class="mc-variable DocLoc.DM_SK variable">Dragon Medical SpeechKit</span>.</p>
+        <p class="note"><b>Note:</b> This use case is recommended for special cases only; integration is complex with significant effort. If your control isn't supported, contact Nuance support for information on when it will be supported.</p>
+        <p>Access to text controls that aren't supported by <span class="mc-variable DocLoc.DM_SK variable">Dragon Medical SpeechKit</span> is abstracted via the <span class="path">com.nuance.speechanywhere.custom.ITextControl</span> interface. A custom control is an object in your app, which implements this interface. A set of custom controls is speech-enabled by the custom VuiController. <span class="mc-variable DocLoc.DM_SK variable">Dragon Medical SpeechKit</span> interacts with custom controls via the <code>ITextControl</code> interface, retrieving and altering their text, selection and user input focus state. Your custom control implementation performs <span class="mc-variable DocLoc.DM_SK variable">Dragon Medical SpeechKit</span> requests by manipulating the actual unsupported text control. </p>
+        <p>
+            <img src="../Resources/Android_CustomControlDiagram.png" class="pageWidth" alt="" />
+        </p>
+        <p>For example, when recognition results arrive for the control, the <code>replaceText</code> method is called on the <code>ITextControl</code> interface, instructing your custom control implementation to insert text into the text control.</p>
+        <p>In this use case, you are responsible for emulating a supported text control towards <span class="mc-variable DocLoc.DM_SK variable">Dragon Medical SpeechKit</span>. The <code>ITextControl</code> interface specifies how a supported text control appears and behaves; you must implement the necessary functionality in your class.</p>
+        <h2>The ITextControl interface</h2>
+        <p>The <code>ITextControl</code> interface specifies the behavior of a custom control implementation. Your class must implement all these methods exactly as specified here. Incomplete or incorrect implementation will lead to incorrect behavior, possibly resulting in incorrect, unusable text in the control.</p>
+        <p><span class="mc-variable DocLoc.DM_SK variable">Dragon Medical SpeechKit</span> assumes the following model for all controls:</p>
+        <h3>Text content</h3>
+        <p>The control contains unstructured plain text, indexed by 0-based character positions. If your control has a different concept of contents (e.g. formatted or structured text), you must represent it as described here and perform a conversion between plain text and the actual content of the control in both directions.</p>
+        <h3>Selection</h3>
+        <p>Exactly one section of the text is selected at a time. The selection is defined by its start character position and length in characters. The selection represents the section of text that will be affected by the next user action and must be restricted to character positions within the text content. A zero character long "selection" means that nothing is selected; it specifies the location of the cursor or insertion point (the start of the zero character long selection). A zero character long selection can have a start position that's identical to the length of the entire text; in this case the insertion point is at the end of the current text content.</p>
+        <h3>Focus</h3>
+        <p>A maximum of one field can have the focus at a time. If a field has the focus, the next user action will affect its contents; for example, dictation results of the next utterance are inserted into this field. If no field has the focus, dictation results are inserted into the most-recently focused field.</p>
+        <h3>Format strings</h3>
+        <p>Line and paragraph breaks are represented as special characters. When the user’s dictation results in a line or a paragraph break, <span class="mc-variable DocLoc.DM_SK variable">Dragon Medical SpeechKit</span> inserts these special characters in the text of your control. Voice commands whose behavior is affected by line and paragraph breaks look for these special characters in the control’s text content.</p>
+        <h2>Operations</h2>
+        <p>Your control must be able to perform the following operations:</p>
+        <h3>Identifying itself</h3>
+        <p>Your control must return an ID which uniquely identifies the control as visible for the user (<code>String getId()</code>). <span class="mc-variable DocLoc.DM_SK variable">Dragon Medical SpeechKit</span> uses this ID to connect <code>ITextControl</code> instances wrapping this control, even if the control and/or the <code>ITextControl</code> instance are destroyed and recreated during the operation. It's similar to the ID properties Android Views can have: If your ITextControl instance is directly connected to a View in the Activity, you can return its Android ID in this method.</p>
+        <h3>Manipulating text content</h3>
+        <ul>
+            <li>Reporting the length of the text in the control:<br /><code>int getTextLength()</code></li>
+            <li>
+                <p class="compact">Extracting a range of the text content:<br /><code>String getText(int start, int length)</code></p>
+                <p>If <code>length</code> is set to <code>-1</code>, all text from <code>start</code> to the end of the control should be returned.</p>
+            </li>
+            <li>Replacing a range of the text content by a string of characters:<br /><code>void replaceText(int start, int length, String newText)</code></li>
+        </ul>
+        <p>If the <code>length</code> is zero, the <code>newText</code> must be inserted at the position defined by <code>start</code>, otherwise it must replace a range of characters defined by <code>length</code>, starting from the position <code>start</code>. <code>newText</code> can be empty, in this case the specified range of text must be deleted. The <code>replaceText</code> method must not affect the selection: the same characters in the text must remain selected after the operation. If the insertion point or selected range is to the left of the start position, it must not be affected at all. If the insertion point or selected range is to the right of the newly inserted text, its position must be adjusted to its left, to accommodate the change in the number of characters. If the replaced range intersects the current selection, the insertion point should be at the end of the newly inserted text.</p>
+        <p><span class="mc-variable DocLoc.DM_SK variable">Dragon Medical SpeechKit</span> maintains a history of the text and selection in the control and interprets any change between the current state reported by your control and previous states as editing performed by the user.</p>
+        <p>If your implementation needs to manipulate the text (for example, convert between plain text and RichText or HTML), you must ensure that such bi-directional text conversions are symmetric: the text inserted via the <code>replaceText</code> method must appear unchanged when queried subsequently via the <code>getText</code> method, unless the text has been changed by the user or programmatically in the meantime.</p>
+        <p>If your implementation fails to fulfill the above requirements and the text and/or selection content returned by your control don't have the state expected by <span class="mc-variable DocLoc.DM_SK variable">Dragon Medical SpeechKit</span>, <span class="mc-variable DocLoc.DM_SK variable">Dragon Medical SpeechKit</span> assumes that the user has edited the field. This can cause unexpected behavior, for example pending cursor navigation or selection commands might be ignored, or text might be inserted in an unexpected location. Text changes by the user might be interpreted as corrections of misrecognized text. If text changes are the result of an erroneous custom control implementation, this might result in the system adapting incorrectly and higher recognition error rates.</p>
+        <h3>Manipulating selection</h3>
+        <ul>
+            <li>Returning the current selection start and length in the control:<br /><code>Selection getSelection()</code><br />Here <code>Selection</code> is a class representing the selection state of a control, encapsulating its start and length.<br />As described above, in case of a zero character long selection the start position defines the location of the insertion point.</li>
+            <li>Setting the current selection start and length in the control:<br /><code>void setSelection(Selection selection)</code></li>
+        </ul>
+        <h3>Manipulating focus</h3>
+        <ul>
+            <li>Reporting if the control has the focus or not:<br /><code>boolean isFocused()</code><br />A maximum of one control should report being focused. The state reported by your custom control implementation can be tied to the Android GUI focus state of the underlying text control, as long as it corresponds to the control in which the user’s typed input is inserted. If your UI enables the user to edit text in a control that doesn't have the Android GUI focus (because e.g. the GUI focus is on a button on the UI), your custom control implementation must reflect this focus concept and report the corresponding focused state.</li>
+            <li>Setting the control to be focused:<br /><code>void setFocused()</code><br />It's assumed that setting the focused state of the control implicitly clears that of the other controls.</li>
+            <li>Proactively notifying <span class="mc-variable DocLoc.DM_SK variable">Dragon Medical SpeechKit</span> about a control having received the focus, via invoking a method on the custom VuiController:<br /><code>void controlGotFocus(ITextControl control)</code><br />Firing this event is optional but strongly recommended; if not performed, user-initiated changes to the focus might not be detected by <span class="mc-variable DocLoc.DM_SK variable">Dragon Medical SpeechKit</span> in time and text might be inserted into the wrong field.</li>
+        </ul>
+        <h3>Formatting strings</h3>
+        <ul>
+            <li>Reporting the character sequence representing a line break:<br /><code>String getNewlineFormatString()</code><br />For example, if your underlying text control uses HTML, you could return <code>\n</code> for this property and convert this character from/to the <code>&lt;br/&gt;</code> HTML markup.</li>
+            <li>Reporting the character sequence representing a paragraph break:<br /><code>String getParagraphFormatString()</code><br />For example, if your underlying text control uses HTML, you could return <code>\v</code> for this property and convert this character from/to the <code>&lt;p&gt;...&lt;/p&gt;</code> HTML markup.</li>
+        </ul>
+        <p class="note"><b>Note:</b> All specified methods and properties must be implemented and we strongly recommend invoking the <code>controlGotFocus</code> method.</p>
+        <h2>The custom VuiController</h2>
+        <p>The custom VuiController (<span class="path">com.nuance.SpeechAnywhere.custom.VuiController</span>) can interact with your custom control implementation. Its interface and behavior resemble those of the <a href="DANUBE_SPEECH_ENABLE_ANDROID.htm">regular VuiController</a> (<span class="path">com.nuance.SpeechAnywhere.VuiController</span>). The differences concern:</p>
+        <ul>
+            <li>The set of speech-enabled controls<br />Regular VuiControllers automatically detect the controls which are speech-enabled by examining the Views contained by your Activity. In the custom control use case, the controls as seen by <span class="mc-variable DocLoc.DM_SK variable">Dragon Medical SpeechKit</span> (your <code>ITextControl</code> implementations) aren't necessarily contained by any View, therefore you must pass all <code>ITextControl</code> instances to be speech-enabled to the custom VuiController.</li>
+            <li>Synchronizing the VuiController<br />Similarly to regular VuiControllers, the <code>synchronize()</code> method is used to notify the custom VuiController about changes in the voice user interface. Changes in the set of speech-enabled controls are communicated to the VuiController by passing the updated array of controls to <code>synchronize()</code>. You must pass this array even if your set of speech-enabled controls hasn't changed (for example, if you call <code>synchronize()</code> to notify <span class="mc-variable DocLoc.DM_SK variable">Dragon Medical SpeechKit</span> about a change to the set of voice commands). The initial set of speech-enabled controls is also passed to the VuiController via this method.</li>
+            <li>Enabling/disabling speech recognition for a control<br />It follows from the above explanation that the <code>enableView</code> method is missing. All controls you pass to <code>synchronize()</code> will be speech-enabled. To disable speech recognition for a control, call <code>synchronize()</code> with an array that doesn't contain that control.</li>
+        </ul>
+        <h3>Remarks</h3>
+        <ul>
+            <li>In Android, your Activity and the Views it contains can be subject to destruction-recreation cycles upon configuration changes (for example, the rotation of the device). For more information, see <span class="path">http://developer.android.com/guide/topics/resources/runtime-changes.html</span> and <span class="path">http://developer.android.com/training/basics/activity-lifecycle/starting.html</span>. After a destruction-recreation cycle, the custom VuiController must be notified about the new Views and <code>ITextControl</code> instances to be speech-enabled via the <code>synchronize()</code> method. Best practice is to invoke <code>synchronize()</code> from one of the life cycle callbacks of your Activity (<code>onCreate()</code>, <code>onStart()</code> or <code>onResume()</code>). Note that this operation applies pending changes in the VUI, for example, changes in the set of voice commands.</li>
+            <li>The identity of text fields in the <span class="mc-variable DocLoc.DM_SK variable">Dragon Medical SpeechKit</span> document model is tied to the unique identifiers of the custom text control instances you pass to the <code>synchronize()</code> method. If your custom text control instance is destroyed and replaced by another, either intentionally or as a consequence of the destruction-recreation cycle of your Activity, it will only be considered to belong to the same UI control if the new instance has the same ID as the old one.</li>
+        </ul>
+        <p>For more information, see the Custom control sample app and the <a href="../AndroidIntroduction/DANUBE_API_ANDROID.htm">API Reference documentation</a> regarding <code>ITextControl</code> methods.</p>
+    </body>
+</html>

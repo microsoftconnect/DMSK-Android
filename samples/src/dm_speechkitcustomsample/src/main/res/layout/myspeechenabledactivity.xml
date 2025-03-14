@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+   myspeechenabledactivity.xml
+   DM_SpeechKitCustomSample
+
+  Copyright 2010-2024 Nuance Communications, Inc. All rights reserved.
+-->
+
+<!-- Layout of the speech-enabled Activity  -->
+
+<!-- VuiController integration: this element is the root of the view hierarchy  -->
+<com.nuance.speechanywhere.custom.VuiController
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:id="@+id/vuicontroller"
+	android:tag="topic:General Medicine">
+
+	<ScrollView
+		android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+
+		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		              android:orientation="vertical"
+		              android:layout_width="fill_parent"
+		              android:layout_height="fill_parent"
+			>
+
+			<!-- Toggle recording button -->
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal">
+
+				<Button
+					android:id="@+id/record"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:padding="10dp"
+					android:text="Record"
+					android:onClick="toggleRecording"
+					/>
+
+				<Button
+					android:id="@+id/synchronize"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:padding="10dp"
+					android:text="Synchronize"
+					android:onClick="onSynchronize"
+					/>
+			</LinearLayout>
+			<!-- First speech-enabled custom EditText -->
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+
+				<EditText
+					android:id="@+id/oneline_custom"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:singleLine="true"
+					android:imeOptions="flagNoExtractUi"
+					android:hint="Custom control"
+					android:layout_alignParentStart="true"
+					android:layout_alignParentLeft="true"
+					android:layout_toStartOf="@+id/oneline_custom_checkbox"
+					android:layout_toLeftOf="@+id/oneline_custom_checkbox"/>
+
+				<CheckBox
+					android:id="@+id/oneline_custom_checkbox"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentEnd="true"
+					android:layout_alignParentRight="true"
+					android:text="Enabled"
+					android:layout_centerVertical="true"
+					android:layout_marginEnd="5dp"
+					android:layout_marginRight="5dp"
+					android:checked="true"/>
+			</RelativeLayout>
+
+			<!-- Second speech-enabled custom EditText -->
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+
+				<EditText
+					android:id="@+id/multiline_custom"
+					android:minLines="6"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:gravity="top"
+					android:imeOptions="flagNoExtractUi"
+					android:hint="Custom control"
+					android:layout_alignParentStart="true"
+					android:layout_alignParentLeft="true"
+					android:layout_toStartOf="@+id/multiline_custom_checkbox"
+					android:layout_toLeftOf="@+id/multiline_custom_checkbox"
+					/>
+
+				<CheckBox
+					android:id="@+id/multiline_custom_checkbox"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentEnd="true"
+					android:layout_alignParentRight="true"
+					android:text="Enabled"
+					android:layout_marginEnd="5dp"
+					android:layout_marginRight="5dp"
+					android:checked="true"/>
+			</RelativeLayout>
+			<!-- First speech-enabled native EditText -->
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+
+				<EditText
+					android:id="@+id/oneline"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:singleLine="true"
+					android:imeOptions="flagNoExtractUi"
+					android:hint="Native control"
+					android:layout_alignParentStart="true"
+					android:layout_alignParentLeft="true"
+					android:layout_toStartOf="@+id/oneline_checkbox"
+					android:layout_toLeftOf="@+id/oneline_checkbox"
+					/>
+
+				<CheckBox
+					android:id="@+id/oneline_checkbox"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentEnd="true"
+					android:layout_alignParentRight="true"
+					android:text="Enabled"
+					android:layout_centerVertical="true"
+					android:layout_marginEnd="5dp"
+					android:layout_marginRight="5dp"
+					android:checked="true"/>
+			</RelativeLayout>
+
+			<!-- Second speech-enabled native EditText -->
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+
+				<EditText
+					android:id="@+id/multiline"
+					android:minLines="6"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:gravity="top"
+					android:imeOptions="flagNoExtractUi"
+					android:hint="Native control"
+					android:layout_alignParentStart="true"
+					android:layout_alignParentLeft="true"
+					android:layout_toStartOf="@+id/multiline_checkbox"
+					android:layout_toLeftOf="@+id/multiline_checkbox"
+					/>
+
+				<CheckBox
+					android:id="@+id/multiline_checkbox"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentEnd="true"
+					android:layout_alignParentRight="true"
+					android:text="Enabled"
+					android:layout_marginEnd="5dp"
+					android:layout_marginRight="5dp"
+					android:checked="true"/>
+			</RelativeLayout>
+		</LinearLayout>
+	</ScrollView>
+</com.nuance.speechanywhere.custom.VuiController>

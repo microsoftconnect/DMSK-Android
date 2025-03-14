@@ -1,0 +1,1059 @@
+<api>
+<package name="com.nuance.speechanywhere"
+>
+<class name="CommandPlaceholder"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="CommandPlaceholder"
+ type="com.nuance.speechanywhere.CommandPlaceholder"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="id" type="java.lang.String">
+</parameter>
+<parameter name="label" type="java.lang.String">
+</parameter>
+</constructor>
+<method name="clearValues"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="setValues"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="values" type="java.lang.String[]">
+</parameter>
+<parameter name="spokenForms" type="java.lang.String[]">
+</parameter>
+</method>
+<field name="id"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="label"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="spokenForms"
+ type="java.util.ArrayList"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="values"
+ type="java.util.ArrayList"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+<class name="CommandSet"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="CommandSet"
+ type="com.nuance.speechanywhere.CommandSet"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="name" type="java.lang.String">
+</parameter>
+<parameter name="description" type="java.lang.String">
+</parameter>
+</constructor>
+<method name="createCommand"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="id" type="java.lang.String">
+</parameter>
+<parameter name="phrase" type="java.lang.String">
+</parameter>
+<parameter name="displayString" type="java.lang.String">
+</parameter>
+<parameter name="description" type="java.lang.String">
+</parameter>
+</method>
+<method name="enableCommand"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="id" type="java.lang.String">
+</parameter>
+<parameter name="enabled" type="boolean">
+</parameter>
+<exception name="IllegalStateException" type="java.lang.IllegalStateException">
+</exception>
+</method>
+<method name="getEnabled"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="setEnabled"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="enabled" type="boolean">
+</parameter>
+</method>
+<field name="commands"
+ type="java.util.HashMap"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="description"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="enabled"
+ type="boolean"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="id"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="name"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+<class name="CommandSet.Command"
+ extends="java.lang.Object"
+ abstract="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="Command"
+ type="com.nuance.speechanywhere.CommandSet.Command"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="id" type="java.lang.String">
+</parameter>
+<parameter name="description" type="java.lang.String">
+</parameter>
+<parameter name="phrase" type="java.lang.String">
+</parameter>
+<parameter name="displayString" type="java.lang.String">
+</parameter>
+<parameter name="enabled" type="boolean">
+</parameter>
+</constructor>
+<method name="set"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="description" type="java.lang.String">
+</parameter>
+<parameter name="phrase" type="java.lang.String">
+</parameter>
+<parameter name="displayString" type="java.lang.String">
+</parameter>
+</method>
+<field name="description"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="displayString"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="enabled"
+ type="boolean"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="id"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="phrase"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+<class name="ContentType"
+ extends="java.lang.Enum"
+ abstract="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="valueOf"
+ return="com.nuance.speechanywhere.ContentType"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="name" type="java.lang.String">
+</parameter>
+</method>
+<method name="values"
+ return="com.nuance.speechanywhere.ContentType[]"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+<class name="Session"
+ extends="java.lang.Object"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="Session"
+ type="com.nuance.speechanywhere.Session"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="addSessionEventListener"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="listener" type="com.nuance.speechanywhere.SessionEventListener">
+</parameter>
+</method>
+<method name="close"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getOnlineHelpURL"
+ return="java.lang.String"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getServerURL"
+ return="java.lang.String"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getSharedSession"
+ return="com.nuance.speechanywhere.Session"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="open"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="userId" type="java.lang.String">
+</parameter>
+<parameter name="organizationToken" type="java.lang.String">
+</parameter>
+<parameter name="partnerGuid" type="java.lang.String">
+</parameter>
+<parameter name="applicationName" type="java.lang.String">
+</parameter>
+</method>
+<method name="removeSessionEventListener"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="listener" type="com.nuance.speechanywhere.SessionEventListener">
+</parameter>
+</method>
+<method name="setApplicationContext"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="applicationContext" type="android.content.Context">
+</parameter>
+</method>
+<method name="setLanguage"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="deprecated"
+ visibility="public"
+>
+<parameter name="language" type="java.lang.String">
+</parameter>
+</method>
+<method name="setOnlineHelpURL"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="url" type="java.lang.String">
+</parameter>
+</method>
+<method name="setServerURL"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="url" type="java.lang.String">
+</parameter>
+</method>
+<method name="showForm"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="contentType" type="com.nuance.speechanywhere.ContentType">
+</parameter>
+</method>
+<method name="startRecording"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="stopRecording"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+<interface name="SessionEventListener"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="onRecordingStarted"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="onRecordingStopped"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</interface>
+<class name="VuiController"
+ extends="com.nuance.speechanywhere.internal.VuiController"
+ abstract="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="VuiController"
+ type="com.nuance.speechanywhere.VuiController"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+</constructor>
+<constructor name="VuiController"
+ type="com.nuance.speechanywhere.VuiController"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="webViewObj" type="android.webkit.WebView">
+</parameter>
+</constructor>
+<constructor name="VuiController"
+ type="com.nuance.speechanywhere.VuiController"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+<parameter name="attrs" type="android.util.AttributeSet">
+</parameter>
+</constructor>
+<constructor name="VuiController"
+ type="com.nuance.speechanywhere.VuiController"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+<parameter name="attrs" type="android.util.AttributeSet">
+</parameter>
+<parameter name="defStyle" type="int">
+</parameter>
+<parameter name="webViewObj" type="android.webkit.WebView">
+</parameter>
+</constructor>
+<method name="clear"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="enableView"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="view" type="android.view.View">
+</parameter>
+<parameter name="enabled" type="boolean">
+</parameter>
+</method>
+<method name="setConceptName"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="view" type="android.view.View">
+</parameter>
+<parameter name="name" type="java.lang.String">
+</parameter>
+</method>
+<method name="setDocumentFieldId"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="view" type="android.view.View">
+</parameter>
+<parameter name="id" type="java.lang.String">
+</parameter>
+</method>
+<method name="synchronize"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+<interface name="VuiControllerEventListener"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="onCommandRecognized"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="id" type="java.lang.String">
+</parameter>
+<parameter name="spokenPhrase" type="java.lang.String">
+</parameter>
+<parameter name="content" type="java.lang.String">
+</parameter>
+<parameter name="placeholderValues" type="java.util.HashMap&lt;java.lang.String, java.lang.String&gt;">
+</parameter>
+</method>
+<method name="onProcessingFinished"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="onProcessingFinished"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="view" type="android.view.View">
+</parameter>
+</method>
+<method name="onProcessingStarted"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="onProcessingStarted"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="view" type="android.view.View">
+</parameter>
+</method>
+</interface>
+</package>
+<package name="com.nuance.speechanywhere.custom"
+>
+<interface name="ITextControl"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="getId"
+ return="java.lang.String"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getNewlineFormatString"
+ return="java.lang.String"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getParagraphFormatString"
+ return="java.lang.String"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getSelection"
+ return="com.nuance.speechanywhere.custom.ITextControl.Selection"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getText"
+ return="java.lang.String"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="start" type="int">
+</parameter>
+<parameter name="length" type="int">
+</parameter>
+</method>
+<method name="getTextLength"
+ return="int"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="isFocused"
+ return="boolean"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="replaceText"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="start" type="int">
+</parameter>
+<parameter name="length" type="int">
+</parameter>
+<parameter name="newText" type="java.lang.String">
+</parameter>
+</method>
+<method name="setFocused"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="setSelection"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="selection" type="com.nuance.speechanywhere.custom.ITextControl.Selection">
+</parameter>
+</method>
+</interface>
+<class name="ITextControl.Selection"
+ extends="java.lang.Object"
+ abstract="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="Selection"
+ type="com.nuance.speechanywhere.custom.ITextControl.Selection"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="start" type="int">
+</parameter>
+<parameter name="length" type="int">
+</parameter>
+</constructor>
+<field name="length"
+ type="int"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="start"
+ type="int"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+<class name="VuiController"
+ extends="com.nuance.speechanywhere.internal.VuiController"
+ abstract="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="VuiController"
+ type="com.nuance.speechanywhere.custom.VuiController"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+</constructor>
+<constructor name="VuiController"
+ type="com.nuance.speechanywhere.custom.VuiController"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="webViewObj" type="android.webkit.WebView">
+</parameter>
+</constructor>
+<constructor name="VuiController"
+ type="com.nuance.speechanywhere.custom.VuiController"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+<parameter name="attrs" type="android.util.AttributeSet">
+</parameter>
+</constructor>
+<constructor name="VuiController"
+ type="com.nuance.speechanywhere.custom.VuiController"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="android.content.Context">
+</parameter>
+<parameter name="attrs" type="android.util.AttributeSet">
+</parameter>
+<parameter name="defStyle" type="int">
+</parameter>
+<parameter name="webViewObj" type="android.webkit.WebView">
+</parameter>
+</constructor>
+<method name="controlGotFocus"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="control" type="com.nuance.speechanywhere.custom.ITextControl">
+</parameter>
+</method>
+<method name="setConceptName"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="control" type="java.lang.Object">
+</parameter>
+<parameter name="name" type="java.lang.String">
+</parameter>
+</method>
+<method name="setDocumentFieldId"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="control" type="java.lang.Object">
+</parameter>
+<parameter name="id" type="java.lang.String">
+</parameter>
+</method>
+<method name="synchronize"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="controls" type="java.util.List&lt;java.lang.Object&gt;">
+</parameter>
+</method>
+</class>
+</package>
+</api>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+   main.xml
+   DM_SpeechKitDocumentSample
+
+  Copyright 2010-2024 Nuance Communications, Inc. All rights reserved.
+-->
+
+<!-- Layout of the login Activity  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:paddingRight="@dimen/activity_horizontal_margin"
+              android:paddingTop="@dimen/activity_vertical_margin"
+              android:paddingBottom="@dimen/activity_vertical_margin"
+	>
+
+	<!-- This is the EditText where the user can type their username -->
+	<EditText
+		android:id="@+id/login"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="140px"
+		android:singleLine="true"
+		android:maxLength="20"
+		android:hint="user ID">
+	</EditText>
+</LinearLayout>
+
+

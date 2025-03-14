@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Use Cases">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" type="text/css" data-mc-generated="True" />
+        <link href="../../Skins/Default/Stylesheets/Components/Print.css" rel="stylesheet" type="text/css" data-mc-generated="True" /><title>
+			Speech-enabling your Android application
+		</title>
+        <link href="../Resources/Stylesheets/DocLoc.css" rel="stylesheet" type="text/css" />
+        <script src="../../Resources/Scripts/jquery.min.js" type="text/javascript">
+        </script>
+        <script src="../../Resources/Scripts/purify.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/foundation.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js" type="text/javascript" defer="defer">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js" type="text/javascript" defer="defer">
+        </script>
+    </head>
+    <body>
+        <h1><a name="kanchor11"></a>Speech-enabling your Android app</h1>
+        <p class="warning"><span class="important">Important:</span> If you're deploying <span class="mc-variable DocLoc.DM_Server variable">Dragon Medical Server</span> at your site (and not hosted by Nuance), make sure to <a href="DANUBE_CONFIGURE_ONPREMISE_ANDROID.htm">configure <span class="mc-variable DocLoc.DM_SK variable">Dragon Medical SpeechKit</span> for on-premise deployment</a> before speech-enabling your app.</p>
+        <h2>Prerequisites</h2>
+        <p>You've created one or more activities and the session has been initialized (see: <a href="DANUBE_INITIALIZE_SESSION_ANDROID.htm">Speech recognition session initialization</a>).</p>
+        <h2>Procedure</h2>
+        <p>For each activity to be speech-enabled, do the following:</p>
+        <ol>
+            <li value="1">Add this view declaration to the XML layout file of the activity (/res/layout/myactivity.xml), as the root view:</li>
+            <p class="compact"><code>&lt;com.nuance.speechanywhere.VuiController</code> </p>
+            <p class="compact2"><code>xmlns:android="http://schemas.android.com/apk/res/android"</code> </p>
+            <p class="compact2"><code>android:layout_width="match_parent"</code> </p>
+            <p class="compact2"><code>android:layout_height="match_parent"</code> </p>
+            <p class="indent2"><code>android:id="@+id/vuicontroller"&gt;</code> </p>
+            <p class="indent">Make sure that the <code>android:id</code> is unique for every VuiController instance.</p>
+            <li value="2">Close the VuiController declaration in the appropriate place with the tag: <code>&lt;/com.nuance.speechanywhere.VuiController&gt;</code></li>
+        </ol>
+        <p>Your Android app is now capable of speech recognition.</p>
+        <h2>Remarks</h2>
+        <p>The VuiController implements the ViewGroup interface, which means that it can contain your activity's complete view hierarchy. Only the views wrapped by the VuiController XML parent node will be speech-enabled. You should add the VuiController declaration to the top level (following the &lt;?xml&gt; tag), as the root view. The original view hierarchy of your activity will be present (and unchanged) as a child of the VuiController view.</p>
+        <p> All speech-enabled controls must have a unique ID; the <code>android:id</code> field must be present in their XML declaration. If you add the control dynamically, call the <code>setId()</code> method to assign an ID. Controls that don't have a unique ID will be excluded from speech recognition.</p>
+        <p>For sample code of the layout XML file, see the <a href="DANUBE_SAMPLE_CODE_ANDROID.htm">sample VuiController integration</a>.</p>
+        <p>Text controls which aren't editable are not speech-enabled by default; however, they can be speech-enabled by calling <code>enableView</code> with a <code>true</code> argument on the VuiController. For more information, see: <a href="DANUBE_GUI_VIEW_ANDROID.htm#Excludin">Excluding text controls from speech recognition</a>.</p>
+        <h2>Optional parameters</h2>
+        <p> If you have a separate recording button in addition to <span class="mc-variable DocLoc.DM_SK variable">Dragon Medical SpeechKit</span>'s speech bar, you must connect a button press event (triggered by a button control or a dedicated hardware button) to the <code>startRecording()</code> and <code>stopRecording()</code> methods on your <code>Session</code> instance to enable the user to start and stop recording.</p>
+        <h2>Fragments</h2>
+        <p><span class="mc-variable DocLoc.DM_SK variable">Dragon Medical SpeechKit</span> supports multiple fragments in one activity. To ensure that all fragments in an activity are speech-enabled automatically, follow the procedure above and place the VuiController at the root of your activity's hierarchy.</p>
+        <p>Setting VUI concept names, <a href="DANUBE_FIELDS_ANDROID.htm">enabling/disabling named fields</a> and <a href="DANUBE_GUI_VIEW_ANDROID.htm">dynamically modifying the set of speech-enabled views</a> are operations on the VuiController instance. Fragments encapsulate the view hierarchy and its related functionality; you can design fragments so that they also encapsulate all speech recognition-related logic.</p>
+        <p>It's good practice to pass a VuiController instance reference to all fragments in the speech-enabled activity. The fragments can use this reference to perform all necessary operations on the VuiController. This means that the internal view hierarchy and functionality of the fragments are fully encapsulated and invisible to the enclosing activity.</p>
+        <p>For an example of a speech-enabled activity with multiple fragments, see the fragment sample app: <span class="path">samples/src/DM_SpeechKitFragmentSample</span>.</p>
+        <h2>Touch event handling and gesture recognition</h2>
+        <p>The VuiController is sensitive to touch events and performs gesture recognition. To ensure that it doesn't interfere with your app's own gesture recognition, follow these guidelines:</p>
+        <ul>
+            <li>If one of the views in your view hierarchy handles touch events and gestures, adding the VuiController to the root of the view hierarchy won't have an effect on your gesture recognition.</li>
+        </ul>
+        <ul>
+            <li>If your activity handles touch events and gestures, use the <code>dispatchTouchEvent</code> callback to capture touch events. The <code>dispatchTouchEvent</code> callback method is invoked for all events before they reach the view hierarchy.</li>
+        </ul>
+        <p class="indent2">Make sure not to break the chain of event dispatching and call the superclass implementation of the <code>dispatchTouchEvent</code> callback method; for example, use <code>return super.dispatchTouchEvent();</code> as the last line of code in your overridden method implementation.</p>
+        <p class="indent2">Don't use the <code>onTouchEvent</code> callback: This is only invoked for events which aren't handled by any view in the activity’s hierarchy. As the VuiController handles touch events, this condition won't be satisfied and the <code>onTouchEvent</code> callback will never be invoked. This is Android application framework behavior by design.</p>
+    </body>
+</html>

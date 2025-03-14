@@ -1,0 +1,52 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+	>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Second fragment"
+		/>
+
+	<!-- Disable second field button -->
+	<Button
+		android:id="@+id/disable"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:padding="10dp"
+		android:text="Disable second field"
+		/>
+
+	<!-- First speech-enabled EditText -->
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="'foo'"
+		/>
+
+	<EditText
+		android:id="@+id/foo"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:singleLine="true"
+		android:imeOptions="flagNoExtractUi"
+		/>
+
+	<!-- Second speech-enabled EditText -->
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="'bar'"
+		/>
+
+	<EditText
+		android:id="@+id/bar"
+		android:minLines="6"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="top"
+		android:imeOptions="flagNoExtractUi"
+		/>
+</LinearLayout>
