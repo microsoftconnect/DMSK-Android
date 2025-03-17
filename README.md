@@ -1,12 +1,12 @@
 # Dragon Medical SpeechKit Android SDK
-Temporary location for Android SpeechKit package and samples
+Temporary location for Android SpeechKit package and samples.
 See the following pages for more information:
 
 [Setting up Dragon Medical SpeechKit](https://review.learn.microsoft.com/en-us/industry/healthcare/speechkit/android-sdk/setup?branch=main)
 
 [Getting Started with Dragon Medical SpeechKit](https://review.learn.microsoft.com/en-us/industry/healthcare/speechkit/concepts/getting-started?branch=main)
 
-[Online documentation](https://review.learn.microsoft.com/en-us/industry/healthcare/speechkit/browser/?branch=main)
+[Online documentation](https://review.learn.microsoft.com/en-us/industry/healthcare/speechkit/android-sdk/?branch=main)
 
 [End user documentation](https://review.learn.microsoft.com/en-us/industry/healthcare/speechkit/enduser/end-user-help?branch=main)
 
