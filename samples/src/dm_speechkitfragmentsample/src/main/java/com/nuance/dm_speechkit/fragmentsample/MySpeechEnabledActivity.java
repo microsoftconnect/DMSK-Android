@@ -7,12 +7,17 @@
 package com.nuance.dm_speechkit.fragmentsample;
 
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 
 // Import the Dragon Medical SpeechKit API
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.FragmentActivity;
+
 import com.nuance.speechanywhere.Session;
 import com.nuance.speechanywhere.SessionEventListener;
 import com.nuance.speechanywhere.VuiController;
@@ -58,7 +63,7 @@ import java.util.HashMap;
 // In this sample, the setVuiController() method of the custom fragments serves this purpose. 
 // See implementation in FirstFragment.java and SecondFragment.java.
 //
-public class MySpeechEnabledActivity extends Activity implements SessionEventListener, VuiControllerEventListener {
+public class MySpeechEnabledActivity extends FragmentActivity implements SessionEventListener, VuiControllerEventListener {
 	private boolean recording_flag = false; // Keep track of recording state.
 	private Button btn;                     // The button which will function as a toggle recording button
 	private VuiController theVuiController; // Reference to the VuiController object
@@ -66,29 +71,67 @@ public class MySpeechEnabledActivity extends Activity implements SessionEventLis
 	@Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+			getWindow().setFlags(
+				WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+				WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+			);
+		}
+
 		setContentView(R.layout.myspeechenabledactivity);
+
+		// Handle window insets for edge-to-edge display
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+
+			View rootView = findViewById(android.R.id.content);
+			if (rootView != null) {
+				ViewCompat.setOnApplyWindowInsetsListener(rootView, (v, insets) -> {
+					androidx.core.graphics.Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+					androidx.core.graphics.Insets ime = insets.getInsets(WindowInsetsCompat.Type.ime());
+					v.setPadding(
+							systemBars.left,
+							systemBars.top,
+							systemBars.right,
+							Math.max(systemBars.bottom, ime.bottom)
+					);
+					return WindowInsetsCompat.CONSUMED;
+				});
+			}
+		}
 
 		// Obtain a reference to the VuiController object and store it to a field to be able to set additional settings like language, topics and conceptnames.  
 		theVuiController = (VuiController) findViewById(R.id.vuicontroller);
-		// Obtain a reference to the toggle recording button
-		btn = (Button) findViewById(R.id.record);
+		
+		// Pass the VuiController instance to the fragments
+		FirstFragment firstFragment = (FirstFragment) getSupportFragmentManager().findFragmentById(R.id.firstfragment);
+		if (firstFragment != null) {
+			firstFragment.setVuiController(theVuiController);
+			firstFragment.getViewLifecycleOwnerLiveData().observe(this, viewLifecycleOwner -> {
+				if (viewLifecycleOwner != null) {
+					// Get the record button from the first fragment
+					btn = firstFragment.getView() != null ? firstFragment.getView().findViewById(R.id.record) : null;
+					btn = firstFragment.getView().findViewById(R.id.record);
+					// Restore the button state if needed
+					if (btn != null) {
+						if (recording_flag) btn.setText("Stop");
+						else btn.setText("Record");
+					}
+				}
+			});
+		}
+		SecondFragment secondFragment = (SecondFragment) getSupportFragmentManager().findFragmentById(R.id.secondfragment);
+		if (secondFragment != null) {
+			secondFragment.setVuiController(theVuiController);
+		}
 
 		// Restore recording state destruction-recreation (for example, on device rotation)
 		if ((icicle != null) && (icicle.containsKey("recording"))) {
 			recording_flag = icicle.getBoolean("recording");
-			if (recording_flag) btn.setText("Stop");
-			else btn.setText("Record");
+			if (btn != null) {
+				if (recording_flag) btn.setText("Stop");
+				else btn.setText("Record");
+			}
 		}
-
-		// Pass the VuiController instance to the fragments
-		// This method is the best place to pass the reference to the Fragments, as by this time the VuiController is already created
-		//  and the instance will exist as long as the Activity is not destroyed. If it is destroyed and recreated, 
-		//  onCreate() will be called again subsequently and the new VuiController instance will again be passed to the (newly created) Fragments. 
-		FirstFragment firstFragment = (FirstFragment) getFragmentManager().findFragmentById(R.id.firstfragment);
-		firstFragment.setVuiController(theVuiController);
-
-		SecondFragment secondFragment = (SecondFragment) getFragmentManager().findFragmentById(R.id.secondfragment);
-		secondFragment.setVuiController(theVuiController);
 	}
 
 	// Save recording state across destruction-recreation (for example, on device rotation)
@@ -126,10 +169,8 @@ public class MySpeechEnabledActivity extends Activity implements SessionEventLis
 		// Implement a simple toggle recording method. Depending on the state of recording_flag the SDK function
 		// startRecording() or stopRecording() is called. 
 		if (!recording_flag) {
-			Log.i("TEST", "Record pressed");
 			Session.getSharedSession().startRecording();
 		} else {
-			Log.i("TEST", "Stop pressed");
 			Session.getSharedSession().stopRecording();
 		}
 	}
@@ -137,44 +178,39 @@ public class MySpeechEnabledActivity extends Activity implements SessionEventLis
 	// VuiControllerEventListener callback methods
 	@Override
 	public void onProcessingStarted() {
-		Log.i("TEST", "Speech recognition started.");
 	}
 
 	@Override
 	public void onProcessingFinished() {
-		Log.i("TEST", "Speech recognition finished.");
 	}
 
 	@Override
 	public void onProcessingStarted(View view) {
-		Log.i("TEST", "Speech recognition started for view " + view);
 	}
 
 	@Override
 	public void onProcessingFinished(View view) {
-		Log.i("TEST", "Speech recognition finished for view " + view);
 	}
 
 	public void onCommandRecognized(String id, String spokenPhrase, String content, HashMap<String, String> placeholderValues) {
-		Log.i("TEST", "onCommandRecognized id = " + id + ", content = " + content + ", spokenPhrase = " + spokenPhrase);
-		for (String key : placeholderValues.keySet()) {
-			Log.i("TEST", "   - (" + key + "," + placeholderValues.get(key) + ")");
-		}
+
 	}
 
 	// SessionEventListener callback methods
 	@Override
 	public void onRecordingStarted() {
-		Log.i("TEST", "Recording started");
-		recording_flag = true; // Keep track of recording state 
-		btn.setText("Stop");   // The button text is changed to indicate the current state.
+		recording_flag = true; // Keep track of recording state
+		if (btn != null) {
+			btn.setText("Stop");   // The button text is changed to indicate the current state.
+		}
 	}
 
 	@Override
 	public void onRecordingStopped() {
-		Log.i("TEST", "Recording stopped");
-		recording_flag = false; // Keep track of recording state 
-		btn.setText("Record");  // The button text is changed to indicate the current state.
+		recording_flag = false; // Keep track of recording state
+		if (btn != null) {
+			btn.setText("Record");  // The button text is changed to indicate the current state.
+		}
 	}
 
 }

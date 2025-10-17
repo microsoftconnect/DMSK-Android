@@ -152,6 +152,7 @@
               
     <li><h2>Interfaces</h2>
       <ul>
+          <li class="api apilevel-"><a href="../../../com/nuance/speechanywhere/EntraIdEventListener.html">EntraIdEventListener</a></li>
           <li class="api apilevel-"><a href="../../../com/nuance/speechanywhere/SessionEventListener.html">SessionEventListener</a></li>
           <li class="api apilevel-"><a href="../../../com/nuance/speechanywhere/VuiControllerEventListener.html">VuiControllerEventListener</a></li>
       </ul>
@@ -416,6 +417,24 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../com/nuance/speechanywhere/Session.html#addEntraIdEventListener(com.nuance.speechanywhere.EntraIdEventListener)">addEntraIdEventListener</a></span>(<a href="../../../com/nuance/speechanywhere/EntraIdEventListener.html">EntraIdEventListener</a> listener)</nobr>
+        
+        <div class="jd-descrdiv">Adds a <code><a href="../../../com/nuance/speechanywhere/EntraIdEventListener.html">EntraIdEventListener</a></code> for receiving notification about invalid entraId token event.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../com/nuance/speechanywhere/Session.html#addSessionEventListener(com.nuance.speechanywhere.SessionEventListener)">addSessionEventListener</a></span>(<a href="../../../com/nuance/speechanywhere/SessionEventListener.html">SessionEventListener</a> listener)</nobr>
         
         <div class="jd-descrdiv">Adds a <code><a href="../../../com/nuance/speechanywhere/SessionEventListener.html">SessionEventListener</a></code> for receiving notification about session events.</div>
@@ -424,7 +443,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -442,7 +461,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -460,7 +479,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -478,7 +497,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -496,7 +515,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -514,7 +533,43 @@ Summary:
 
 
 	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../com/nuance/speechanywhere/Session.html#open(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.util.Date)">open</a></span>(String userId, String organizationToken, String partnerGuid, String applicationName, String entraIdToken, Date expireOn)</nobr>
+        
+        <div class="jd-descrdiv">Opens a session.</div>
+  
+  </td></tr>
+
+
+	 
     <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../com/nuance/speechanywhere/Session.html#removeEntraIdEventListener(com.nuance.speechanywhere.EntraIdEventListener)">removeEntraIdEventListener</a></span>(<a href="../../../com/nuance/speechanywhere/EntraIdEventListener.html">EntraIdEventListener</a> listener)</nobr>
+        
+        <div class="jd-descrdiv">Removes a <code><a href="../../../com/nuance/speechanywhere/EntraIdEventListener.html">EntraIdEventListener</a></code> for receiving notification about invalid entraId token event.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -532,7 +587,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -552,7 +607,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -574,7 +629,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -592,7 +647,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -610,7 +665,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -628,7 +683,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -646,7 +701,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -659,6 +714,24 @@ Summary:
         <span class="sympad"><a href="../../../com/nuance/speechanywhere/Session.html#stopRecording()">stopRecording</a></span>()</nobr>
         
         <div class="jd-descrdiv">Stops recording.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../com/nuance/speechanywhere/Session.html#updateEntraIdToken(java.lang.String, java.util.Date)">updateEntraIdToken</a></span>(String entraIdToken, Date expireOn)</nobr>
+        
+        <div class="jd-descrdiv">Updates the entraIdToken</div>
   
   </td></tr>
 
@@ -927,6 +1000,47 @@ From class
 
 
 
+<A NAME="addEntraIdEventListener(com.nuance.speechanywhere.EntraIdEventListener)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">addEntraIdEventListener</span>
+      <span class="normal">(<a href="../../../com/nuance/speechanywhere/EntraIdEventListener.html">EntraIdEventListener</a> listener)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Adds a <code><a href="../../../com/nuance/speechanywhere/EntraIdEventListener.html">EntraIdEventListener</a></code> for receiving notification about invalid entraId token event.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>listener</td>
+          <td>The listener object implementing the <code><a href="../../../com/nuance/speechanywhere/EntraIdEventListener.html">EntraIdEventListener</a></code> interface to be added.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
 <A NAME="addSessionEventListener(com.nuance.speechanywhere.SessionEventListener)"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1162,6 +1276,114 @@ From class
         <tr>
           <th>applicationName</td>
           <td>Application name. The application name identifies your application on the web service and can be chosen by your integration. The application name is not part of the licensing information; it can be any string.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="open(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.util.Date)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">open</span>
+      <span class="normal">(String userId, String organizationToken, String partnerGuid, String applicationName, String entraIdToken, Date expireOn)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Opens a session. Throws an IllegalStateException if the session is already open.
+ <p/>
+ <p>This method creates a connection to the Dragon Medical Server and authenticates the application, user and account information as passed. Sessions are usually opened as soon as user credentials are available in your application. Licensing errors will be displayed to the end user of your application.</p>
+ <p/>
+ <p>Note that the Dragon Medical Server will automatically free user licenses if there are longer periods of inactivity. In these cases you do not need to explicitly reopen or close the session; the license will be reaquired automatically with the next user activity, e.g. starting a recording session.</p>
+ <p/>
+ <p>If the licenseGuid or partnerGuid parameter were not specified (e.g. a null or empty String was passed), Dragon Medical SpeechKit will not try to verify the license with the web service and will not offer speech recognition-related functionality to the end user or your application - it has the same effect as not calling the method at all. E.g. calling startRecording: will not have any effect.</p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>userId</td>
+          <td>User ID. Can be up to 75 characters long.</td>
+        </tr>
+        <tr>
+          <th>organizationToken</td>
+          <td>Organization token. Invalid organization tokens will be rejected during runtime and cause an alert message to appear to the end user.</td>
+        </tr>
+        <tr>
+          <th>partnerGuid</td>
+          <td>Partner GUID. Invalid partner GUIDs will be rejected during runtime and cause an alert message to appear to the end user.</td>
+        </tr>
+        <tr>
+          <th>applicationName</td>
+          <td>Application name. The application name identifies your application on the web service and can be chosen by your integration. The application name is not part of the licensing information; it can be any string.</td>
+        </tr>
+        <tr>
+          <th>entraIdToken</td>
+          <td>The entraIdToken from MSAL.</td>
+        </tr>
+        <tr>
+          <th>expireOn</td>
+          <td>Expire date of entraId Token.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="removeEntraIdEventListener(com.nuance.speechanywhere.EntraIdEventListener)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">removeEntraIdEventListener</span>
+      <span class="normal">(<a href="../../../com/nuance/speechanywhere/EntraIdEventListener.html">EntraIdEventListener</a> listener)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Removes a <code><a href="../../../com/nuance/speechanywhere/EntraIdEventListener.html">EntraIdEventListener</a></code> for receiving notification about invalid entraId token event.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>listener</td>
+          <td>The listener object implementing the <code><a href="../../../com/nuance/speechanywhere/EntraIdEventListener.html">EntraIdEventListener</a></code> interface to be removed.
 </td>
         </tr>
       </table>
@@ -1483,6 +1705,51 @@ From class
  <p/>
  <p>Stops recording audio data and requests any pending recognition results from the Dragon Medical Server. If recording is not running, this method does not do anything. If the session has not been previously opened, the method does not do anything. The session will call the onRecordingStopped callback method on all registered <code><a href="../../../com/nuance/speechanywhere/SessionEventListener.html">SessionEventListener</a></code>s.</p>
 </p></div>
+
+    </div>
+</div>
+
+
+<A NAME="updateEntraIdToken(java.lang.String, java.util.Date)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">updateEntraIdToken</span>
+      <span class="normal">(String entraIdToken, Date expireOn)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Updates the entraIdToken</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>entraIdToken</td>
+          <td>The entraIdToken from MSAL.</td>
+        </tr>
+        <tr>
+          <th>expireOn</td>
+          <td>Expire date of entraId Token.
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>

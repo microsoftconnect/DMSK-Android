@@ -7,9 +7,10 @@
 package com.nuance.dm_speechkit.customsample;
 
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -22,6 +23,9 @@ import com.nuance.speechanywhere.Session;
 import com.nuance.speechanywhere.SessionEventListener;
 import com.nuance.speechanywhere.VuiControllerEventListener;
 import com.nuance.speechanywhere.custom.VuiController;
+
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -87,7 +91,34 @@ public class MySpeechEnabledActivity extends Activity implements SessionEventLis
 	@Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
+
+		// Handle edge-to-edge display.
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+			getWindow().setFlags(
+				WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+				WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+			);
+		}
+
 		setContentView(R.layout.myspeechenabledactivity);
+
+		// Handle window insets for edge-to-edge display
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+			View rootView = findViewById(android.R.id.content);
+			if (rootView != null) {
+				ViewCompat.setOnApplyWindowInsetsListener(rootView, (v, insets) -> {
+					androidx.core.graphics.Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+					androidx.core.graphics.Insets ime = insets.getInsets(WindowInsetsCompat.Type.ime());
+					v.setPadding(
+						systemBars.left,
+						systemBars.top,
+						systemBars.right,
+						Math.max(systemBars.bottom, ime.bottom)
+					);
+					return WindowInsetsCompat.CONSUMED;
+				});
+			}
+		}
 
 		// Obtain a reference to the VuiController object and store it to a field to be able to set additional settings like language, topics and conceptnames.
 		theVuiController = (VuiController) findViewById(R.id.vuicontroller);
@@ -228,10 +259,8 @@ public class MySpeechEnabledActivity extends Activity implements SessionEventLis
 		// Implement a simple toggle recording method. Depending on the state of recording_flag the SDK function
 		// startRecording() or stopRecording() is called.
 		if (!recording_flag) {
-			Log.i("TEST", "Record pressed");
 			Session.getSharedSession().startRecording();
 		} else {
-			Log.i("TEST", "Stop pressed");
 			Session.getSharedSession().stopRecording();
 		}
 	}
@@ -244,43 +273,37 @@ public class MySpeechEnabledActivity extends Activity implements SessionEventLis
 	// VuiControllerEventListener callback methods
 	@Override
 	public void onProcessingStarted() {
-		Log.i("TEST", "Speech recognition started.");
 	}
 
 	@Override
 	public void onProcessingFinished() {
-		Log.i("TEST", "Speech recognition finished.");
 	}
 
 	@Override
 	public void onProcessingStarted(View view) {
-		Log.i("TEST", "Speech recognition started for view " + view);
 	}
 
 	@Override
 	public void onProcessingFinished(View view) {
-		Log.i("TEST", "Speech recognition finished for view " + view);
 	}
 
 	// The user has dictated an application command
 	public void onCommandRecognized(String id, String spokenPhrase, String content, HashMap<String, String> placeholderValues) {
-		Log.i("TEST", "onCommandRecognized id = " + id + ", content = " + content + ", spokenPhrase = " + spokenPhrase);
+		System.out.println("onCommandRecognized id = " + id + ", content = " + content + ", spokenPhrase = " + spokenPhrase);
 		for (String key : placeholderValues.keySet()) {
-			Log.i("TEST", "   - (" + key + "," + placeholderValues.get(key) + ")");
+			System.out.println("   - (" + key + "," + placeholderValues.get(key) + ")");
 		}
 	}
 
 	// SessionEventListener callback methods
 	@Override
 	public void onRecordingStarted() {
-		Log.i("TEST", "Recording started");
 		recording_flag = true; // Keep track of recordoing state
 		btn.setText("Stop");   // The button text is changed to indicate the current state.
 	}
 
 	@Override
 	public void onRecordingStopped() {
-		Log.i("TEST", "Recording stopped");
 		recording_flag = false; // Keep track of recordoing state
 		btn.setText("Record");  // The button text is changed to indicate the current state.
 	}

@@ -6,13 +6,13 @@
 //
 package com.nuance.dm_speechkit.fragmentsample;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import androidx.fragment.app.Fragment;
 import com.nuance.speechanywhere.VuiController;
 
 // This is the code of the first fragment.
@@ -29,7 +29,7 @@ public class FirstFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
-		View root = inflater.inflate(R.layout.firstfragment, null);
+		View root = inflater.inflate(R.layout.firstfragment, container, false);
 		// Save references of the EditTexts (which might be speech enabled by an enclosing VuiController)
 		appleField = (EditText) root.findViewById(R.id.apple);
 		pearField = (EditText) root.findViewById(R.id.pear);
