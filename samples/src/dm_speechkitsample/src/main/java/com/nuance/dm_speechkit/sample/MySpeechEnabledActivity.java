@@ -9,10 +9,19 @@ package com.nuance.dm_speechkit.sample;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowInsets;
+import android.view.WindowInsetsController;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.graphics.Insets;
 
 import com.nuance.speechanywhere.CommandPlaceholder;
 import com.nuance.speechanywhere.CommandSet;
@@ -59,9 +68,32 @@ public class MySpeechEnabledActivity extends Activity implements SessionEventLis
 	@Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
+
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+			getWindow().setFlags(
+					WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+					WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+			);
+		}
 		setContentView(R.layout.myspeechenabledactivity);
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
 			getWindow().setHideOverlayWindows(true);
+		}
+
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+			WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+			//Handle window insets for edge-to-edge UI
+			View rootView = findViewById(R.id.vuicontroller);
+			ViewCompat.setOnApplyWindowInsetsListener(rootView, (v, insets) -> {
+				Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+				Insets ime = insets.getInsets(WindowInsetsCompat.Type.ime());
+
+				// Apply padding to avoid system bars
+				v.setPadding(systemBars.left, systemBars.top, systemBars.right,
+						Math.max(systemBars.bottom, ime.bottom));
+
+				return insets;
+			});
 		}
 
 		// Obtain a reference to the VuiController object and store it to a field to be able to set additional settings like language, topics and conceptnames.
@@ -155,10 +187,8 @@ public class MySpeechEnabledActivity extends Activity implements SessionEventLis
 		// Implement a simple toggle recording method. Depending on the state of recording_flag the SDK function
 		// startRecording() or stopRecording() is called.
 		if (!recording_flag) {
-			Log.i("TEST", "Record pressed");
 			Session.getSharedSession().startRecording();
 		} else {
-			Log.i("TEST", "Stop pressed");
 			Session.getSharedSession().stopRecording();
 		}
 	}
@@ -166,43 +196,34 @@ public class MySpeechEnabledActivity extends Activity implements SessionEventLis
 	// VuiControllerEventListener callback methods
 	@Override
 	public void onProcessingStarted() {
-		Log.i("TEST", "Speech recognition started.");
 	}
 
 	@Override
 	public void onProcessingFinished() {
-		Log.i("TEST", "Speech recognition finished.");
 	}
 
 	@Override
 	public void onProcessingStarted(View view) {
-		Log.i("TEST", "Speech recognition started for view " + view);
 	}
 
 	@Override
 	public void onProcessingFinished(View view) {
-		Log.i("TEST", "Speech recognition finished for view " + view);
 	}
 
 	// The user has dictated an application command
 	public void onCommandRecognized(String id, String spokenPhrase, String content, HashMap<String, String> placeholderValues) {
-		Log.i("TEST", "onCommandRecognized id = " + id + ", content = " + content + ", spokenPhrase = " + spokenPhrase);
-		for (String key : placeholderValues.keySet()) {
-			Log.i("TEST", "   - (" + key + "," + placeholderValues.get(key) + ")");
-		}
+
 	}
 
 	// SessionEventListener callback methods
 	@Override
 	public void onRecordingStarted() {
-		Log.i("TEST", "Recording started");
 		recording_flag = true; // Keep track of recordoing state
 		btn.setText("Stop");   // The button text is changed to indicate the current state.
 	}
 
 	@Override
 	public void onRecordingStopped() {
-		Log.i("TEST", "Recording stopped");
 		recording_flag = false; // Keep track of recordoing state
 		btn.setText("Record");  // The button text is changed to indicate the current state.
 	}

@@ -6,7 +6,6 @@
 //
 package com.nuance.dm_speechkit.fragmentsample;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +13,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-
+import androidx.fragment.app.Fragment;
 import com.nuance.speechanywhere.VuiController;
 
 //This is the code of the first fragment. See comments in FirstFragment.java
@@ -25,7 +24,7 @@ public class SecondFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
-		View root = inflater.inflate(R.layout.secondfragment, null);
+		View root = inflater.inflate(R.layout.secondfragment, container, false);
 		fooField = (EditText) root.findViewById(R.id.foo);
 		barField = (EditText) root.findViewById(R.id.bar);
 		Button disableButton = (Button) root.findViewById(R.id.disable);

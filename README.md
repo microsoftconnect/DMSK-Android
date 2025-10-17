@@ -10,8 +10,8 @@ See the following pages for more information:
 
 [End user documentation](https://learn.microsoft.com/en-us/industry/healthcare/speechkit/enduser/end-user-help)
 
-[Release notes for 2024.1](https://learn.microsoft.com/en-us/industry/healthcare/speechkit/release-notes/android-2024.1)
+[Release notes for 2025.4](https://learn.microsoft.com/en-us/industry/healthcare/speechkit/release-notes/android-2025.4)
 
-[Changes since the last version](https://learn.microsoft.com/en-us/industry/healthcare/speechkit/release-notes/android-2024.1#new-in-version-20241-57-r1)
+[Changes since the last version](https://learn.microsoft.com/en-us/industry/healthcare/speechkit/release-notes/android-2025.4#new-in-version-20254)
 
-Version 2024.1 (5.7.238.1)
+Version 2025.4 (6.0.125.1)

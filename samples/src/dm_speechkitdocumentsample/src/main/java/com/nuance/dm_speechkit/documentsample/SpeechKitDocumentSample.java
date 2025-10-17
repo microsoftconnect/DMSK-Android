@@ -9,12 +9,16 @@ package com.nuance.dm_speechkit.documentsample;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 
 // Import the Session class from the SpeechKit API (for opening the session)
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import com.nuance.speechanywhere.Session;
 
 //
@@ -44,8 +48,32 @@ public class SpeechKitDocumentSample extends Activity implements View.OnKeyListe
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+			getWindow().setFlags(
+					WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+					WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+			);
+		}
 		setContentView(R.layout.activity_speechkit_documentsample);
 
+		// Handle window insets for edge-to-edge display
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+
+			View rootView = findViewById(android.R.id.content);
+			if (rootView != null) {
+				ViewCompat.setOnApplyWindowInsetsListener(rootView, (v, insets) -> {
+					androidx.core.graphics.Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+					androidx.core.graphics.Insets ime = insets.getInsets(WindowInsetsCompat.Type.ime());
+					v.setPadding(
+							systemBars.left,
+							systemBars.top,
+							systemBars.right,
+							Math.max(systemBars.bottom, ime.bottom)
+					);
+					return WindowInsetsCompat.CONSUMED;
+				});
+			}
+		}
 		// Obtain a refernce to the EditText in which the user can type their username.
 		EditText editBox = (EditText) findViewById(R.id.login);
 		// Set an OnKeyListener to be notified about the user pressing the "enter" button.

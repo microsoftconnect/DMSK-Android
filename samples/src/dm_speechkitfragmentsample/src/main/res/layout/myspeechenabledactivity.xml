@@ -4,42 +4,59 @@
    myspeechenabledactivity.xml
    DM_SpeechKitFragmentSample
 
-  Copyright 2010-2024 Nuance Communications, Inc. All rights reserved.
+  Copyright 2010-2025 Nuance Communications, Inc. All rights reserved.
 -->
 
-<!-- Layout of the speech-enabled Activity  -->
+<!-- Layout of the speech-enabled Activity - Updated for Android 16 edge-to-edge support -->
 
 <!-- VuiController integration: this element is the root of the view hierarchy  -->
 <com.nuance.speechanywhere.VuiController
 	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:id="@+id/vuicontroller"
-	android:tag="topic:General Medicine">
+	android:tag="topic:General Medicine"
+	android:fitsSystemWindows="false"
+	android:background="@android:color/background_light">
 
 	<ScrollView
-		android:orientation="vertical"
-		android:layout_width="fill_parent"
-		android:layout_height="fill_parent">
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
 
-		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-		              android:orientation="vertical"
-		              android:layout_width="fill_parent"
-		              android:layout_height="fill_parent"
-			>
+		<androidx.constraintlayout.widget.ConstraintLayout
+		              android:layout_width="match_parent"
+		              android:layout_height="wrap_content"
+		              android:paddingHorizontal="16dp"
+		              android:paddingTop="0dp"
+		              android:paddingBottom="16dp">
+
 			<!--  First fragment, below the VuiController so that all fields in it will be speech enabled -->
-			<fragment
-				class="com.nuance.dm_speechkit.fragmentsample.FirstFragment"
-				android:layout_width="match_parent"
-				android:layout_height="match_parent"
-				android:id="@+id/firstfragment"/>
+			<androidx.fragment.app.FragmentContainerView
+				android:name="com.nuance.dm_speechkit.fragmentsample.FirstFragment"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="32dp"
+				android:layout_marginBottom="16dp"
+				android:id="@+id/firstfragment"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				/>
 
 			<!--  Second fragment, below the VuiController so that all fields in it will be speech enabled -->
-			<fragment
-				class="com.nuance.dm_speechkit.fragmentsample.SecondFragment"
-				android:layout_width="match_parent"
-				android:layout_height="match_parent"
-				android:id="@+id/secondfragment"/>
-		</LinearLayout>
+			<androidx.fragment.app.FragmentContainerView
+				android:name="com.nuance.dm_speechkit.fragmentsample.SecondFragment"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="16dp"
+				android:id="@+id/secondfragment"
+				app:layout_constraintTop_toBottomOf="@+id/firstfragment"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent"
+				/>
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
 	</ScrollView>
 </com.nuance.speechanywhere.VuiController>

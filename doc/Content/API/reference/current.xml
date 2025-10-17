@@ -346,6 +346,36 @@
 >
 </method>
 </class>
+<interface name="EntraIdEventListener"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="onEntraIdTokenAboutToExpire"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="onInvalidEntraIdToken"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</interface>
 <class name="Session"
  extends="java.lang.Object"
  abstract="true"
@@ -362,6 +392,19 @@
  visibility="public"
 >
 </constructor>
+<method name="addEntraIdEventListener"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="listener" type="com.nuance.speechanywhere.EntraIdEventListener">
+</parameter>
+</method>
 <method name="addSessionEventListener"
  return="void"
  abstract="true"
@@ -436,6 +479,42 @@
 <parameter name="partnerGuid" type="java.lang.String">
 </parameter>
 <parameter name="applicationName" type="java.lang.String">
+</parameter>
+</method>
+<method name="open"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="userId" type="java.lang.String">
+</parameter>
+<parameter name="organizationToken" type="java.lang.String">
+</parameter>
+<parameter name="partnerGuid" type="java.lang.String">
+</parameter>
+<parameter name="applicationName" type="java.lang.String">
+</parameter>
+<parameter name="entraIdToken" type="java.lang.String">
+</parameter>
+<parameter name="expireOn" type="java.util.Date">
+</parameter>
+</method>
+<method name="removeEntraIdEventListener"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="listener" type="com.nuance.speechanywhere.EntraIdEventListener">
 </parameter>
 </method>
 <method name="removeSessionEventListener"
@@ -537,6 +616,21 @@
  deprecated="not deprecated"
  visibility="public"
 >
+</method>
+<method name="updateEntraIdToken"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="entraIdToken" type="java.lang.String">
+</parameter>
+<parameter name="expireOn" type="java.util.Date">
+</parameter>
 </method>
 </class>
 <interface name="SessionEventListener"
