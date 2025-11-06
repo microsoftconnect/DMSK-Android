@@ -14,4 +14,4 @@ See the following pages for more information:
 
 [Changes since the last version](https://learn.microsoft.com/en-us/industry/healthcare/speechkit/release-notes/android-2025.4#new-in-version-20254)
 
-Version 2025.4 (6.0.125.1)
+Version 2025.4 (6.0.128.1)
