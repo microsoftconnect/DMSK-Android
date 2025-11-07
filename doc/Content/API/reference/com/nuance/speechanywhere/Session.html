@@ -729,6 +729,24 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../com/nuance/speechanywhere/Session.html#stopRecordingOnInvalidToken()">stopRecordingOnInvalidToken</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Stops recording.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../com/nuance/speechanywhere/Session.html#updateEntraIdToken(java.lang.String, java.util.Date)">updateEntraIdToken</a></span>(String entraIdToken, Date expireOn)</nobr>
         
         <div class="jd-descrdiv">Updates the entraIdToken</div>
@@ -1704,6 +1722,40 @@ From class
   <div class="jd-tagdata jd-tagdescr"><p>Stops recording. Has no effect if recording is already stopped.
  <p/>
  <p>Stops recording audio data and requests any pending recognition results from the Dragon Medical Server. If recording is not running, this method does not do anything. If the session has not been previously opened, the method does not do anything. The session will call the onRecordingStopped callback method on all registered <code><a href="../../../com/nuance/speechanywhere/SessionEventListener.html">SessionEventListener</a></code>s.</p>
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="stopRecordingOnInvalidToken()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">stopRecordingOnInvalidToken</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Stops recording. Has no effect if recording is already stopped.
+ <p/>
+ <p>Stops recording audio data. If recording is not running, this method does not do anything. If the session has not been previously opened, the method does not do anything.</p>
 </p></div>
 
     </div>
