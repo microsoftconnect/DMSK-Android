@@ -436,7 +436,7 @@
  synchronized="false"
  static="false"
  final="false"
- deprecated="not deprecated"
+ deprecated="deprecated"
  visibility="public"
 >
 </method>
@@ -540,7 +540,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="applicationContext" type="android.content.Context">
+<parameter name="applicationContext" type="Context">
 </parameter>
 </method>
 <method name="setLanguage"
@@ -563,7 +563,7 @@
  synchronized="false"
  static="false"
  final="false"
- deprecated="not deprecated"
+ deprecated="deprecated"
  visibility="public"
 >
 <parameter name="url" type="java.lang.String">
@@ -651,6 +651,19 @@
  deprecated="not deprecated"
  visibility="public"
 >
+<method name="onIntegrationError"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="errorMessage" type="java.lang.String">
+</parameter>
+</method>
 <method name="onRecordingStarted"
  return="void"
  abstract="true"
@@ -689,7 +702,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="context" type="android.content.Context">
+<parameter name="context" type="Context">
 </parameter>
 </constructor>
 <constructor name="VuiController"
@@ -699,7 +712,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="webViewObj" type="android.webkit.WebView">
+<parameter name="webViewObj" type="WebView">
 </parameter>
 </constructor>
 <constructor name="VuiController"
@@ -709,9 +722,9 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="context" type="android.content.Context">
+<parameter name="context" type="Context">
 </parameter>
-<parameter name="attrs" type="android.util.AttributeSet">
+<parameter name="attrs" type="AttributeSet">
 </parameter>
 </constructor>
 <constructor name="VuiController"
@@ -721,13 +734,13 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="context" type="android.content.Context">
+<parameter name="context" type="Context">
 </parameter>
-<parameter name="attrs" type="android.util.AttributeSet">
+<parameter name="attrs" type="AttributeSet">
 </parameter>
 <parameter name="defStyle" type="int">
 </parameter>
-<parameter name="webViewObj" type="android.webkit.WebView">
+<parameter name="webViewObj" type="WebView">
 </parameter>
 </constructor>
 <method name="clear"
@@ -751,7 +764,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="view" type="android.view.View">
+<parameter name="view" type="View">
 </parameter>
 <parameter name="enabled" type="boolean">
 </parameter>
@@ -766,7 +779,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="view" type="android.view.View">
+<parameter name="view" type="View">
 </parameter>
 <parameter name="name" type="java.lang.String">
 </parameter>
@@ -781,7 +794,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="view" type="android.view.View">
+<parameter name="view" type="View">
 </parameter>
 <parameter name="id" type="java.lang.String">
 </parameter>
@@ -845,7 +858,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="view" type="android.view.View">
+<parameter name="view" type="View">
 </parameter>
 </method>
 <method name="onProcessingStarted"
@@ -869,7 +882,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="view" type="android.view.View">
+<parameter name="view" type="View">
 </parameter>
 </method>
 </interface>
@@ -1062,7 +1075,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="context" type="android.content.Context">
+<parameter name="context" type="Context">
 </parameter>
 </constructor>
 <constructor name="VuiController"
@@ -1072,7 +1085,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="webViewObj" type="android.webkit.WebView">
+<parameter name="webViewObj" type="WebView">
 </parameter>
 </constructor>
 <constructor name="VuiController"
@@ -1082,9 +1095,9 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="context" type="android.content.Context">
+<parameter name="context" type="Context">
 </parameter>
-<parameter name="attrs" type="android.util.AttributeSet">
+<parameter name="attrs" type="AttributeSet">
 </parameter>
 </constructor>
 <constructor name="VuiController"
@@ -1094,13 +1107,13 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="context" type="android.content.Context">
+<parameter name="context" type="Context">
 </parameter>
-<parameter name="attrs" type="android.util.AttributeSet">
+<parameter name="attrs" type="AttributeSet">
 </parameter>
 <parameter name="defStyle" type="int">
 </parameter>
-<parameter name="webViewObj" type="android.webkit.WebView">
+<parameter name="webViewObj" type="WebView">
 </parameter>
 </constructor>
 <method name="controlGotFocus"
