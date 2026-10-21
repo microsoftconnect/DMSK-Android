@@ -11,10 +11,10 @@ See the following pages for more information:
 
 [End user documentation](https://learn.microsoft.com/en-us/industry/healthcare/speechkit/enduser/end-user-help)
 
-[Release notes for 2026.3](https://learn.microsoft.com/en-us/industry/healthcare/speechkit/release-notes/android-2026.3)
+[Release notes for 2026.4](https://learn.microsoft.com/en-us/industry/healthcare/speechkit/release-notes/android-2026.4)
 
-[Changes since the last version](https://learn.microsoft.com/en-us/industry/healthcare/speechkit/release-notes/android-2026.3#new-in-version-20263)
+[Changes since the last version](https://learn.microsoft.com/en-us/industry/healthcare/speechkit/release-notes/android-2026.4#new-in-version-20264)
 
-Release 2026.3 (7.0 R1)
+Release 2026.4 (7.0 R1)
 
-Version 7.0.3.1
+Version 7.0.16.1
