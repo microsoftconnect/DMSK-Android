@@ -11,6 +11,8 @@ See the following pages for more information:
 
 [End user documentation](https://learn.microsoft.com/en-us/industry/healthcare/speechkit/enduser/end-user-help)
 
+[Samples repository](https://github.com/microsoftconnect/DMSK-Android-Samples)
+
 [Release notes for 2026.4](https://learn.microsoft.com/en-us/industry/healthcare/speechkit/release-notes/android-2026.4)
 
 [Changes since the last version](https://learn.microsoft.com/en-us/industry/healthcare/speechkit/release-notes/android-2026.4#new-in-version-20264)
