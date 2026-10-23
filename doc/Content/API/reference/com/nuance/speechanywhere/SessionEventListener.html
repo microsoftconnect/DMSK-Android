@@ -347,6 +347,24 @@
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../com/nuance/speechanywhere/SessionEventListener.html#onIntegrationError(java.lang.String)">onIntegrationError</a></span>(String errorMessage)</nobr>
+        
+        <div class="jd-descrdiv">Called when an integration error is detected.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../com/nuance/speechanywhere/SessionEventListener.html#onRecordingStarted()">onRecordingStarted</a></span>()</nobr>
         
         <div class="jd-descrdiv">Called when recording is started.</div>
@@ -355,7 +373,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -418,6 +436,41 @@
 
 <h2>Public Methods</h2>
 
+
+
+<A NAME="onIntegrationError(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">onIntegrationError</span>
+      <span class="normal">(String errorMessage)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Called when an integration error is detected.
+ Sent to the delegate whenever a integration error is detected, such as invalid input parameters
+ or authentication information.
+ By default, integration errors will be ignored unless overridden by the implementer.
+</p></div>
+
+    </div>
+</div>
 
 
 <A NAME="onRecordingStarted()"></A>
